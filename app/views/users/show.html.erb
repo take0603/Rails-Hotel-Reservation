@@ -1,0 +1,22 @@
+<h1>プロフィール表示ページ</h1>
+<p>テストページです</p>
+
+<%=  link_to "アカウント", users_account_path %>
+<%=  link_to "プロフィール", users_profile_path %>
+
+<%=  link_to "編集", users_profile_edit_path %>
+
+<div>
+  <%= "アイコン画像" %>
+  <%= @user.icon %>
+</div>
+
+<div>
+  <%= "名前" %>
+  <%= @user.name %>
+</div>
+
+<div>
+  <%= "自己紹介" %>
+  <%= @user.introduction %>
+</div>
