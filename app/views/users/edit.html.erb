@@ -7,8 +7,8 @@
 <div>
   <%= form_with model: @user, url:users_profile_update_path do |f| %>
     <div>
-      <%= f.label :icon ,"アイコン画像" %>
-      <%= f.file_field :icon %>
+      <%= f.label :user_image ,"アイコン画像" %>
+      <%= f.file_field :user_image %>
     </div>
     
     <div>

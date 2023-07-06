@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:icon, :name, :introduction)
+    params.require(:user).permit(:icon, :name, :introduction, :user_image)
   end
 #ここまで
 
