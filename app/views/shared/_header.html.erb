@@ -1,8 +1,11 @@
 <h1><%=  link_to "ホテル予約サイト（ヘッダー）", root_path %></h1>
 
-<%=  link_to "新規登録", new_user_registration_path %>
-<%=  link_to "ログイン", user_session_path %>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br>
+<% if user_signed_in? %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%=  link_to "新規登録", new_user_registration_path %>
+  <%=  link_to "ログイン", user_session_path %>
+<% end %>
 
 <div>ログイン状態：<%= current_user.present? %></div>
 ---------------------------------------------------------------------------

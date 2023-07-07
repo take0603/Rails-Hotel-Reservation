@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'users/profile/edit', to: 'users#edit'
   patch 'users/profile/update', to: 'users#update'
 
+  resources :rooms
 end
