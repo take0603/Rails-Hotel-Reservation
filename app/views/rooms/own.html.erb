@@ -1,0 +1,13 @@
+<h2>登録済み一覧</h2>
+
+<% @rooms.each do |room| %>
+  <div>
+    <%= link_to "#{room.name}", room_path(room.id) %><br>
+    <%= room.address %><br>
+    <%= room.explanation %><br>
+    <%= room.price %><br>
+    <%= link_to "編集", edit_room_path(room.id) %>
+    <%= link_to "施設を削除", room_path(room.id), method: :delete %>
+  </div>
+  <br>
+<% end %>

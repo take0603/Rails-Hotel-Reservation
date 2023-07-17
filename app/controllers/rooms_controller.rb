@@ -40,10 +40,13 @@ class RoomsController < ApplicationController
     redirect_to rooms_path
   end
 
+  def own
+    @rooms = current_user.rooms
+  end
 
   private
   def room_params
-    params.require(:room).permit(:name, :price, :address, :explanation)
+    params.require(:room).permit(:name, :price, :address, :explanation, :user_id)
   end
 
 end

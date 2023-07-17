@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'users/profile/edit', to: 'users#edit'
   patch 'users/profile/update', to: 'users#update'
 
+  get 'rooms/own', to: 'rooms#own'
   resources :rooms
 
   resources :reservations

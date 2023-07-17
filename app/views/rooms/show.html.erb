@@ -1,12 +1,11 @@
-# リレーションを組んでroom.idもreservationに渡さないと、新規予約→バリデーションエラーで戻ってきた際、room.idがないためエラーになる（？）
-
+<% #  リレーションを組んでroom.idもreservationに渡さないと、新規予約→バリデーションエラーで戻ってきた際、room.idがないためエラーになる（？）%>
 <h2>施設詳細ページ</h2>
 <%= @room.id %>のページです<br>
 
 
-<%=  link_to "戻る", :back %>
-<%=  link_to "編集", edit_room_path %>
-<%=  link_to "削除", room_path, method: :delete %>
+<%= link_to "戻る", :back %>
+<%= link_to "編集", edit_room_path %>
+<%= link_to "削除", room_path, method: :delete %>
 
 <div>
   <%= @room.name %>

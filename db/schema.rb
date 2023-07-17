@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_08_064458) do
+ActiveRecord::Schema.define(version: 2023_07_17_115743) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "checkin_date"
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2023_07_08_064458) do
     t.integer "people_num"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "room_id"
+    t.index ["room_id"], name: "index_reservations_on_room_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -27,6 +31,10 @@ ActiveRecord::Schema.define(version: 2023_07_08_064458) do
     t.text "explanation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "reservation_id"
+    t.index ["reservation_id"], name: "index_rooms_on_reservation_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,8 +48,18 @@ ActiveRecord::Schema.define(version: 2023_07_08_064458) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_image"
+    t.integer "room_id"
+    t.integer "reservation_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reservation_id"], name: "index_users_on_reservation_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["room_id"], name: "index_users_on_room_id"
   end
 
+  add_foreign_key "reservations", "rooms"
+  add_foreign_key "reservations", "users"
+  add_foreign_key "rooms", "reservations"
+  add_foreign_key "rooms", "users"
+  add_foreign_key "users", "reservations"
+  add_foreign_key "users", "rooms"
 end
