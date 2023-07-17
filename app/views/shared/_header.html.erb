@@ -1,6 +1,9 @@
 <h1><%=  link_to "ホテル予約サイト（ヘッダー）", root_path %></h1>
 
 <% if user_signed_in? %>
+  <%= link_to "施設の新規登録", new_room_path %>
+  <%= link_to "予約済み一覧", reservations_path %>
+  <%= link_to "アカウント設定", users_account_path %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <% else %>
   <%=  link_to "新規登録", new_user_registration_path %>

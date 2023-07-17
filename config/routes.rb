@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
   devise_for :users
   
   root to: 'home#index'
@@ -10,4 +11,7 @@ Rails.application.routes.draw do
   patch 'users/profile/update', to: 'users#update'
 
   resources :rooms
+
+  resources :reservations
+  post 'reservations/confirm', to: 'reservations#confirm'
 end

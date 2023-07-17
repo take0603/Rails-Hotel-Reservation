@@ -1,0 +1,12 @@
+<h2>予約済み施設一覧</h2>
+
+<% @reservation.each do |reservation| %>
+  <div>
+    <%= reservation.id %><br>
+    <%= reservation.checkin_date %><br>
+    <%= reservation.checkout_date %><br>
+    <%= link_to "再予約", edit_reservation_path(reservation) %>
+    <%= link_to "予約を削除", reservation_path(reservation), method: :delete %>
+  </div>
+  <br>
+<% end %>

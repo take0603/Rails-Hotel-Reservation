@@ -1,3 +1,5 @@
+# リレーションを組んでroom.idもreservationに渡さないと、新規予約→バリデーションエラーで戻ってきた際、room.idがないためエラーになる（？）
+
 <h2>施設詳細ページ</h2>
 <%= @room.id %>のページです<br>
 
@@ -18,3 +20,26 @@
 <div>
   <%= @room.explanation %>
 </div>
+
+<%= form_with model: @reservation, url: reservations_confirm_path do |form| %>
+  <div>
+    <%= form.label :checkin_date ,"チェックイン" %>
+    <%= form.date_field :checkin_date %>
+  </div>
+
+  <div>
+    <%= form.label :checkout_date ,"チェックアウト" %>
+    <%= form.date_field :checkout_date %>
+  </div>
+
+  <div>
+    <%= form.label :people_num ,"人数" %>
+    <%= form.number_field :people_num %>
+  </div>
+
+  <%= form.hidden_field :id, value: nil %>
+
+  <div>
+    <%= form.submit "予約する" %>
+  </div>
+<% end %>

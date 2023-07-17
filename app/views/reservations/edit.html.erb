@@ -1,0 +1,22 @@
+<%= form_with model: @reservation, url: reservations_confirm_path, method: :post do |form| %>
+  <div>
+    <%= form.label :checkin_date ,"チェックイン" %>
+    <%= form.date_field :checkin_date %>
+  </div>
+
+  <div>
+    <%= form.label :checkout_date ,"チェックアウト" %>
+    <%= form.date_field :checkout_date %>
+  </div>
+
+  <div>
+    <%= form.label :people_num ,"人数" %>
+    <%= form.number_field :people_num %>
+  </div>
+
+  <%= form.hidden_field :id, value: @reservation.id %>
+
+  <div>
+    <%= form.submit "再予約する" %>
+  </div>
+<% end %>
