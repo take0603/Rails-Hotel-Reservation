@@ -12,6 +12,8 @@
   <%= form.hidden_field :checkin_date, value: @reservation_input[:checkin_date] %>
   <%= form.hidden_field :checkout_date, value: @reservation_input[:checkout_date] %>
   <%= form.hidden_field :people_num, value: @reservation_input[:people_num] %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :room_id, value: @reservation_input[:room_id] %>
   <div>
     <%= form.submit "予約する" %>
   </div>

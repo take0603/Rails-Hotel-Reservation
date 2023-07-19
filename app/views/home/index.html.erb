@@ -1,12 +1,20 @@
-<h2>トップページ</h2>
-<h2>施設一覧</h2>
+<h2>Potepan shareでまだ体験したことのない旅をしよう</h2>
 
-<% @rooms.each do |room| %>
-  <div>
-    <%= room.name %><br>
-    <%= room.address %><br>
-    <%= room.explanation %><br>
-    <%= room.price %><br>
-    <br>
-  </div>
+<%= search_form_for @q, url: rooms_path do |f| %>
+  <%= f.search_field :address_cont, placeholder: "エリア名を入力" %><br>
+  <%= f.submit '検索' %>
 <% end %>
+
+<h3>おすすめのエリア</h3>
+<div>
+  <%= link_to "東京", rooms_path(q: {address_cont: "東京"}) %>
+</div>
+<div>
+  <%= link_to "大阪", rooms_path(q: {address_cont: "大阪"}) %>
+</div>
+<div>
+  <%= link_to "京都", rooms_path(q: {address_cont: "京都"}) %>
+</div>
+<div>
+  <%= link_to "札幌", rooms_path(q: {address_cont: "札幌"}) %>
+</div>

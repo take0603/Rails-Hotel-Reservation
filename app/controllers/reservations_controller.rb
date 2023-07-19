@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservation = Reservation.all
+    @reservations = current_user.reservations
   end
 
   def create
@@ -44,7 +44,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:checkin_date, :checkout_date, :people_num)
+    params.require(:reservation).permit(:checkin_date, :checkout_date, :people_num, :user_id, :room_id)
   end
 
 end

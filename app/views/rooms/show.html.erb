@@ -36,7 +36,8 @@
     <%= form.number_field :people_num %>
   </div>
 
-  <%= form.hidden_field :id, value: nil %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :room_id, value: @room.id %>
 
   <div>
     <%= form.submit "予約する" %>

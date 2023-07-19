@@ -1,11 +1,22 @@
 <h2>施設一覧</h2>
+<div>
+  <%= "#{@rooms.count}件が見つかりました。" %>
+</div><br>
 
-<% @rooms.each do |room| %>
-  <div>
-    <%= room.name %><br>
-    <%= room.address %><br>
-    <%= room.explanation %><br>
-    <%= room.price %><br>
-    <br>
-  </div>
+<div>
+  <% @rooms.each do |room| %>
+    <div>
+      <%= room.name %><br>
+      <%= room.address %><br>
+      <%= room.explanation %><br>
+      <%= room.price %><br>
+      <br>
+    </div>
+  <% end %>
+</div>
+
+<%= search_form_for @q, url: rooms_path do |f| %>
+  <%= f.search_field :address_cont, placeholder: "エリア名を入力" %>
+  <%= f.search_field :name_or_address_or_explanation_cont, placeholder: "キーワード名を入力" %><br>
+  <%= f.submit '検索' %>
 <% end %>
