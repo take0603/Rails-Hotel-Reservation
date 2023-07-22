@@ -7,12 +7,10 @@
 <div>
   <%= @room.name %>
 </div>
-
 <div>
   <%= @room.address %>
   <%= @room.price %>
 </div>
-
 <div>
   <%= @room.explanation %>
 </div>
@@ -32,5 +30,5 @@
   <%= form.hidden_field :room_id, value: @room.id %>
   <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <%= form.submit %>
+  <%= form.submit value = "予約する" %>
 <% end %>

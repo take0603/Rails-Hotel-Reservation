@@ -10,10 +10,10 @@
       <%= room.address %><br>
       <%= room.explanation %><br>
       <%= room.price %><br>
-      <br>
-    </div>
+      <%= link_to "詳細はこちら", room_path(room) %>
+    </div><br>
   <% end %>
-</div>
+</div><br>
 
 <%= search_form_for @q, url: rooms_path do |f| %>
   <%= f.search_field :address_cont, placeholder: "エリア名を入力" %>
