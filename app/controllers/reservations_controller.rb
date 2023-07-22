@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to reservations_path
     else
+      @room = Room.find(@reservation.room_id)
       render "rooms/show"
     end
   end
@@ -33,6 +34,9 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = Reservation.new(reservation_params)
+    @stay_days = (@reservation.checkout_date - @reservation.checkin_date).to_i
+    @payment = @reservation.room.price * @reservation.people_num * @stay_days
+
     if @reservation.invalid?
       @room = Room.find(@reservation.room_id)
       render "rooms/show" if @reservation.id.nil?
@@ -48,7 +52,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:checkin_date, :checkout_date, :people_num, :id, :user_id, :room_id)
+    params.require(:reservation).permit(:checkin_date, :checkout_date, :people_num, :payment, :id, :user_id, :room_id)
   end
 
 end

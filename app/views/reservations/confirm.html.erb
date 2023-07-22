@@ -1,9 +1,19 @@
+<div>
+  <%= @reservation.checkin_date.strftime('%Y/%m/%d') %><br>
+  <%= @reservation.checkout_date.strftime('%Y/%m/%d') %><br>
+  <%= @reservation.people_num %><br>
+  <%= @stay_days %><br>
+  <%= @payment %><br>
+</div>
+
+
 <%= form_with model: @reservation_confirm do |form| %>
-  <%= form.hidden_field :checkin_date, value: @reservation[:checkin_date] %>
-  <%= form.hidden_field :checkout_date, value: @reservation[:checkout_date] %>
-  <%= form.hidden_field :people_num, value: @reservation[:people_num] %>
+  <%= form.hidden_field :checkin_date, value: @reservation.checkin_date %>
+  <%= form.hidden_field :checkout_date, value: @reservation.checkout_date %>
+  <%= form.hidden_field :people_num, value: @reservation.people_num %>
+  <%= form.hidden_field :payment, value: @payment %>
   <%= form.hidden_field :room_id, value: @reservation.room_id %>
   <%= form.hidden_field :user_id, value: @reservation.user_id %>
 
-  <%= form.submit %>
+  <%= form.submit value="予約を確定"%>
 <% end %>
