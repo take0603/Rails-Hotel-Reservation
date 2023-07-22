@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-      redirect_to action: :index
+      redirect_to reservations_path
     else
       render "rooms/show"
     end
@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
-      redirect_to action: :index
+      redirect_to reservations_path
     else
       render :edit
     end
@@ -32,19 +32,23 @@ class ReservationsController < ApplicationController
   end
 
   def confirm
-    transition_source = Rails.application.routes.recognize_path(request.referrer)
-    @reservation_input = params[:reservation]
+    @reservation = Reservation.new(reservation_params)
+    if @reservation.invalid?
+      @room = Room.find(@reservation.room_id)
+      render "rooms/show" if @reservation.id.nil?
+      render :edit unless @reservation.id.nil?
+    end
 
-    if transition_source[:controller] == "rooms"
-      @reservation = Reservation.new
+    if @reservation.id.nil?
+      @reservation_confirm = Reservation.new(reservation_params)
     else
-      @reservation = Reservation.find(transition_source[:id])
+      @reservation_confirm = Reservation.find(reservation_params[:id])
     end
   end
 
   private
   def reservation_params
-    params.require(:reservation).permit(:checkin_date, :checkout_date, :people_num, :user_id, :room_id)
+    params.require(:reservation).permit(:checkin_date, :checkout_date, :people_num, :id, :user_id, :room_id)
   end
 
 end

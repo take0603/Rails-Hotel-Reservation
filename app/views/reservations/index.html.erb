@@ -2,9 +2,12 @@
 
 <% @reservations.each do |reservation| %>
   <div>
-    <%= link_to "#{reservation.room.name}", reservation_path(reservation.id) %><br>
+    <%= link_to "#{reservation.room.name}", room_path(reservation.room_id) %><br>
+    <%= reservation.room.explanation %><br>
+    <%= reservation.room.price * reservation.people_num %><br>
     <%= reservation.checkin_date %><br>
     <%= reservation.checkout_date %><br>
+    <%= reservation.updated_at %><br>
     <%= link_to "再予約", edit_reservation_path(reservation) %>
     <%= link_to "予約を削除", reservation_path(reservation), method: :delete %>
   </div>

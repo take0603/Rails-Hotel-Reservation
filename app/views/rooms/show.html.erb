@@ -1,11 +1,8 @@
-<% #  リレーションを組んでroom.idもreservationに渡さないと、新規予約→バリデーションエラーで戻ってきた際、room.idがないためエラーになる（？）%>
 <h2>施設詳細ページ</h2>
-<%= @room.id %>のページです<br>
-
 
 <%= link_to "戻る", :back %>
-<%= link_to "編集", edit_room_path %>
-<%= link_to "削除", room_path, method: :delete %>
+<%= link_to "編集", edit_room_path(@room) %>
+<%= link_to "削除", room_path(@room), method: :delete %>
 
 <div>
   <%= @room.name %>
@@ -20,26 +17,20 @@
   <%= @room.explanation %>
 </div>
 
+
 <%= form_with model: @reservation, url: reservations_confirm_path do |form| %>
   <div>
-    <%= form.label :checkin_date ,"チェックイン" %>
     <%= form.date_field :checkin_date %>
   </div>
-
   <div>
-    <%= form.label :checkout_date ,"チェックアウト" %>
     <%= form.date_field :checkout_date %>
   </div>
-
   <div>
-    <%= form.label :people_num ,"人数" %>
     <%= form.number_field :people_num %>
   </div>
 
-  <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.hidden_field :room_id, value: @room.id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <div>
-    <%= form.submit "予約する" %>
-  </div>
+  <%= form.submit %>
 <% end %>

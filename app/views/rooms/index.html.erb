@@ -17,6 +17,6 @@
 
 <%= search_form_for @q, url: rooms_path do |f| %>
   <%= f.search_field :address_cont, placeholder: "エリア名を入力" %>
-  <%= f.search_field :name_or_address_or_explanation_cont, placeholder: "キーワード名を入力" %><br>
+  <%= f.search_field :name_or_explanation_cont, placeholder: "キーワード名を入力" %><br>
   <%= f.submit '検索' %>
 <% end %>
