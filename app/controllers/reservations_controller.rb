@@ -34,13 +34,14 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = Reservation.new(reservation_params)
-    @stay_days = (@reservation.checkout_date - @reservation.checkin_date).to_i
-    @payment = @reservation.room.price * @reservation.people_num * @stay_days
 
     if @reservation.invalid?
       @room = Room.find(@reservation.room_id)
       render "rooms/show" if @reservation.id.nil?
       render :edit unless @reservation.id.nil?
+    else
+      @stay_days = (@reservation.checkout_date - @reservation.checkin_date).to_i
+      @payment = @reservation.room.price * @reservation.people_num * @stay_days
     end
 
     if @reservation.id.nil?
