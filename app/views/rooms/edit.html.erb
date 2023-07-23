@@ -22,6 +22,11 @@
     <%= form.text_field :address %>
   </div>
 
+  <div>
+    <%= form.label :room_image ,"施設画像" %>
+    <%= form.file_field :room_image  %>
+  </div>
+
   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div>

@@ -2,12 +2,16 @@
 
 <% @rooms.each do |room| %>
   <div>
+    <% if room.room_image? %>  
+      <%= image_tag room.room_image.url %>
+    <% end %>
+  </div>
+  <div>
     <%= link_to "#{room.name}", room_path(room.id) %><br>
     <%= room.explanation %><br>
     <%= room.price %><br>
     <%= room.created_at.strftime('%Y/%m/%d') %><br>
     <%= link_to "編集", edit_room_path(room.id) %>
     <%= link_to "施設を削除", room_path(room.id), method: :delete %>
-  </div>
-  <br>
+  </div><br>
 <% end %>

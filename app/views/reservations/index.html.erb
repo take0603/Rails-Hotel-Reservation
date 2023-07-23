@@ -2,6 +2,11 @@
 
 <% @reservations.each do |reservation| %>
   <div>
+    <% if reservation.room.room_image? %>  
+      <%= image_tag reservation.room.room_image.url %>
+    <% end %>
+  </div>
+  <div>
     <%= link_to "#{reservation.room.name}", room_path(reservation.room_id) %><br>
     <%= reservation.room.explanation %><br>
     <%= reservation.payment %><br>

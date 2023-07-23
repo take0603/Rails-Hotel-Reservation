@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
   belongs_to :user
   has_many :reservations
+  mount_uploader :room_image, RoomImageUploader
 
   def self.ransackable_attributes(auth_object = nil)
     ["name", "address", "explanation"]

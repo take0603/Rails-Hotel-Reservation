@@ -23,6 +23,11 @@
   </div>
 
   <div>
+    <%= form.label :room_image ,"施設画像" %>
+    <%= form.file_field :room_image  %>
+  </div>
+
+  <div>
     <%= form.submit "保存" %>
     <%= link_to "キャンセル", :back %>
   </div>
