@@ -1,8 +1,7 @@
 <h2>施設詳細ページ</h2>
 
 <%= link_to "戻る", :back %>
-<%= link_to "編集", edit_room_path(@room) %>
-<%= link_to "削除", room_path(@room), method: :delete %>
+<%= link_to "編集", edit_room_path(@room) if user_signed_in? && @room.user.id == current_user.id %>
 
 <div>
   <%= image_tag room_image(@room) %>
@@ -19,7 +18,6 @@
   <%= @room.explanation %>
 </div>
 
-
 <%= form_with model: @reservation, url: reservations_confirm_path do |form| %>
   <div>
     <%= form.date_field :checkin_date %>
@@ -31,8 +29,11 @@
     <%= form.number_field :people_num %>
   </div>
 
-  <%= form.hidden_field :room_id, value: @room.id %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-
-  <%= form.submit value = "予約する" %>
+  <% if user_signed_in? %>
+    <%= form.hidden_field :room_id, value: @room.id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.submit value = "予約する" %>
+  <% else %>
+    <%= link_to "ログイン", user_session_path %>
+  <% end %>
 <% end %>

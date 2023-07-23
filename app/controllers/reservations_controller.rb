@@ -6,6 +6,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
+      flash[:notice] = "施設の予約が完了しました。"
       redirect_to reservations_path
     else
       @room = Room.find(@reservation.room_id)
@@ -20,6 +21,7 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
+      flash[:notice] = "施設の予約情報を更新しました。"
       redirect_to reservations_path
     else
       render :edit
@@ -29,6 +31,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
+    flash[:notice] = "施設の予約情報を削除しました。"
     redirect_to reservations_path
   end
 
