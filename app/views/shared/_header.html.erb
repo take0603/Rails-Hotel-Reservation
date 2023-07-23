@@ -1,16 +1,16 @@
 <h1><%=  link_to "ホテル予約サイト（ヘッダー）", root_path %></h1>
 
 <% if user_signed_in? %>
+  <%= image_tag user_image(current_user) %>
+  <%= current_user.name %>
   <%= link_to "施設の新規登録", new_room_path %>
   <%= link_to "予約済み一覧", reservations_path %>
   <%= link_to "登録済み一覧", rooms_own_path %>
   <%= link_to "アカウント設定", users_account_path %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <% else %>
-  <%=  link_to "新規登録", new_user_registration_path %>
-  <%=  link_to "ログイン", user_session_path %>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <%= link_to "ログイン", user_session_path %>
 <% end %>
 
-<div>ログイン状態：<%= current_user.present? %></div>
-<div>ログインユーザー：<%= current_user.name if current_user.present? %></div>
 <div>---------------------------------------------------------------------------</div>
