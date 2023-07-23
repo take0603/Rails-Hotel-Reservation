@@ -8,9 +8,7 @@
 
 <div>
   <%= "アイコン画像" %>
-  <% if @user.user_image? %>  
-    <%= image_tag @user.user_image.url %>
-  <% end %>
+  <%= image_tag user_image(@user) %>
 </div>
 
 <div>
