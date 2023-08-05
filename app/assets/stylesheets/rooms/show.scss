@@ -1,0 +1,87 @@
+.room-show-control {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.room-show-control a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.room-show-container {
+  display: flex;
+  gap: 35px;
+  margin-bottom: 80px;
+}
+
+.room-show-image {
+  width: 40%;
+}
+
+.room-show-image img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.room-show-textcontainer {
+  width: 60%;
+  background: #fff8f1;
+  padding: 30px 25px;
+}
+
+.name-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.room-show-name {
+  font-size: 40px;
+  color: #767e86;
+}
+
+.room-show-price {
+  font-size: 40px;
+  color: #ff7757;
+}
+
+.room-show-address {
+  font-size: 15px;
+  color: #767e86;
+}
+
+.reservation-input-container {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 30px 25px;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.reservation-input-container div {
+  width: 100%;
+}
+
+.reservation-input-container input {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.reservation-button, .reservation-button:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: #ff7757;
+  color: #fff;
+  height: 70px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+}

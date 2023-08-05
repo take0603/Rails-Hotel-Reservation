@@ -1,4 +1,7 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_q, only: [:confirm]
+
   def index
     @reservations = current_user.reservations
   end
@@ -57,6 +60,10 @@ class ReservationsController < ApplicationController
   private
   def reservation_params
     params.require(:reservation).permit(:checkin_date, :checkout_date, :people_num, :payment, :id, :user_id, :room_id)
+  end
+
+  def set_q
+    @q = Room.ransack(params[:q])
   end
 
 end

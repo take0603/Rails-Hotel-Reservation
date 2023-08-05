@@ -1,37 +1,36 @@
-<h2>施設編集ページ</h2>
+<div class="form-wrapper">
+  <h2>施設情報の編集</h2>
 
-<%= form_with model:@room do |form| %>
+  <%= form_with model:@room do |form| %>
+    <div class="form-content">
+      <%= form.label :name ,"施設名" %>
+      <%= form.text_field :name, class: "form-place" %>
+    </div>
+    <div class="form-content">
+      <%= form.label :explanation ,"施設詳細" %>
+      <%= form.text_area :explanation, class: "form-place" %>
+    </div>
+    <div class="form-content">
+      <%= form.label :price ,"料金" %>
+      <%= form.number_field :price, class: "form-place" %>
+    </div>
+    <div class="form-content">
+      <%= form.label :address ,"住所" %>
+      <%= form.text_field :address, class: "form-place" %>
+    </div>
+    <div class="form-content-uploader">
+      <%= form.label :room_image, class: "uploader-label" do %>
+        <span class="btn-uploader-label">施設画像</span>
+      <% end %>
+      <%= form.label :room_image, class: "uploader-image-btn"  do %>
+        <span class="btn-uploader">画像アップロード</span>
+      <% end %>
+      <%= form.file_field :room_image, class: "form-place-uploader" %>
+    </div>
 
-  <div>
-    <%= form.label :name ,"施設名" %>
-    <%= form.text_field :name %>
-  </div>
+    <%= form.submit "保存", class: "form-submit" %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  <% end %>
 
-  <div>
-    <%= form.label :explanation ,"施設詳細" %>
-    <%= form.text_area :explanation %>
-  </div>
-
-  <div>
-    <%= form.label :price ,"料金" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :address ,"住所" %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div>
-    <%= form.label :room_image ,"施設画像" %>
-    <%= form.file_field :room_image  %>
-  </div>
-
-  <%= form.hidden_field :user_id, value: current_user.id %>
-
-  <div>
-    <%= form.submit "保存" %>
-    <%= link_to "キャンセル", :back %>
-  </div>
-
-<% end %>
+  <%= link_to "キャンセル", :back, class: "form-cancel" %>
+</div>

@@ -1,29 +1,40 @@
-<h1>プロフィール編集ページ</h1>
-<p>テストページです</p>
+<div class="wrapper">
+  <h2 class="h2-title">設定</h2>
 
-<%=  link_to "アカウント", users_account_path %>
-<%=  link_to "プロフィール", users_profile_path %>
+  <div class="user-container">
+    <ul class="user-column">
+      <li><%= link_to "アカウント", users_account_path %></li>
+      <li><%= link_to "プロフィール", users_profile_path %></li>
+    </ul>
 
-<div>
-  <%= form_with model: @user, url:users_profile_update_path do |f| %>
-    <div>
-      <%= f.label :user_image ,"アイコン画像" %>
-      <%= f.file_field :user_image %>
+    <div class="user-account">
+      <div class="account-title-header">
+        <h3>プロフィール</h3>
+      </div>
+      <%= form_with model: @user, url:users_profile_update_path do |form| %>
+        <div class="usericon-edit">
+          <%= form.label :user_image, class: "usericon_lable" do %>
+            <span>アイコン画像</span>
+          <% end %>
+          <%= form.label :user_image, class: "upload-usericon-btn" do %>
+            <span class="btn-usericon-uploader">画像アップロード</span>
+            <%= form.file_field :user_image, class: "usericon-uploader" %>
+          <% end %>
+        </div>
+        <div class="account-content">
+          <%= form.label :name, "名前", class: "profile-form-label" %>
+          <%= form.text_field :name, class: "profile-form" %>
+        </div>
+        <div class="account-content">
+          <%= form.label :introduction, "自己紹介", class: "profile-form-label" %>
+          <%= form.text_area :introduction, class: "profile-form" %>
+        </div>
+        <div class="profile-submit-group">
+          <%= link_to "キャンセル", users_profile_path, class: "form-account-cancel" %>
+          <%= form.submit "保存", class: "form-account-submit" %>
+        </div>
+      <% end %>
     </div>
-    
-    <div>
-      <%= f.label :name ,"名前" %>
-      <%= f.text_field :name %>
-    </div>
+  </div>
 
-    <div>
-      <%= f.label :introduction ,"自己紹介" %>
-      <%= f.text_area :introduction %>
-    </div>
-
-    <div>
-      <%= f.submit "保存" %>
-      <%= link_to "キャンセル", users_profile_path %>
-    </div>
-  <% end %>
 </div>

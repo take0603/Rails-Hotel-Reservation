@@ -1,23 +1,30 @@
-<h2>施設一覧</h2>
-<div>
-  <%= "#{@rooms.count}件が見つかりました。" %>
-</div><br>
-
-<div>
-  <% @rooms.each do |room| %> 
-    <%= image_tag room_image(room) %>
-    <div>
-      <%= room.name %><br>
-      <%= room.address %><br>
-      <%= room.explanation %><br>
-      <%= room.price %><br>
-      <%= link_to "詳細はこちら", room_path(room) %>
-    </div><br>
-  <% end %>
-</div><br>
-
 <%= search_form_for @q, url: rooms_path do |f| %>
-  <%= f.search_field :address_cont, placeholder: "エリア名を入力" %>
-  <%= f.search_field :name_or_explanation_cont, placeholder: "キーワード名を入力" %><br>
-  <%= f.submit '検索' %>
+  <div class="rooms-serach">
+    <%= f.search_field :address_cont, placeholder: "エリア名を入力" %>
+    <%= f.search_field :name_or_explanation_cont, placeholder: "キーワード名を入力" %>
+    <%= f.submit '検索' %>
+  </div>
 <% end %>
+
+<div class="wrapper">
+  <div>
+    <%= "#{@rooms.count}件が見つかりました。" %>
+  </div>
+
+  <div>
+    <ul class="room-list">
+      <% @rooms.each do |room| %> 
+        <li class="room-card">
+          <%= image_tag room_image(room), class: "card-image" %>
+          <div class="card-text">
+            <p class="card-name"><%= room.name %></p>
+            <p class="card-address"><%= room.address %></p>
+            <p class="card-explanation"><%= room.explanation %></p>
+            <p class="card-price">¥<%= room.price %>~</p>
+            <p><%= link_to "詳細はこちら", room_path(room), class: "card-link" %></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,18 +1,44 @@
-<h2>予約済み施設一覧</h2>
+<div class="wrapper">
+  <h2>予約済み施設一覧</h2>
 
-<% @reservations.each do |reservation| %>
-  <div>
-    <%= image_tag room_image(reservation.room) %>
+  <div class="table-container">
+    <table class="ownroom-table">
+
+      <tr class="tr-thead">
+        <th>画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>合計料金</th>
+        <th>チェックイン</th>
+        <th>チェックアウト</th>
+        <th>予約確定日時</th>
+        <th></th>
+      </tr>
+
+      <% @reservations.each do |reservation| %>
+        <tr class="tr-tbody">
+          <td><%= image_tag room_image(reservation.room), class: "roomimage" %></td>
+          <td><%= link_to "#{reservation.room.name}", room_path(reservation.room_id) %></td>
+          <td class="table-explanation"><div><%= reservation.room.explanation %></div></td>
+          <td>¥<%= reservation.payment %></td>
+          <td><%= reservation.checkin_date.strftime('%Y/%m/%d') %></td>
+          <td><%= reservation.checkout_date.strftime('%Y/%m/%d') %></td>
+          <td><%= reservation.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
+          <td>
+            <div class="dropdown">
+              <span class="dropdown-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://rails-02-sample.herokuapp.com/assets/icons/three-dot-menu-0c042cde96cc73e058e97d09a24944eb2914eb8c152d418dc6fc6964251fdaa2.svg" class="dropdown-menu-image">
+              </span>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><%= link_to "再予約", edit_reservation_path(reservation) %></li>
+                <li><%= link_to "予約を削除", reservation_path(reservation), method: :delete %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
   </div>
-  <div>
-    <%= link_to "#{reservation.room.name}", room_path(reservation.room_id) %><br>
-    <%= reservation.room.explanation %><br>
-    <%= reservation.payment %><br>
-    <%= reservation.checkin_date.strftime('%Y/%m/%d') %><br>
-    <%= reservation.checkout_date.strftime('%Y/%m/%d') %><br>
-    <%= reservation.updated_at.strftime('%Y/%m/%d %H:%M') %><br>
-    <%= link_to "再予約", edit_reservation_path(reservation) %>
-    <%= link_to "予約を削除", reservation_path(reservation), method: :delete %>
-  </div>
-  <br>
-<% end %>
+
+</div>

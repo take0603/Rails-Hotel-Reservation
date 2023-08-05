@@ -1,17 +1,41 @@
-<%= form_with model: @reservation, url: reservations_confirm_path, method: :post  do |form| %>
-  <div>
-    <%= form.date_field :checkin_date %>
-  </div>
-  <div>
-    <%= form.date_field :checkout_date %>
-  </div>
-  <div>
-    <%= form.number_field :people_num %>
+<div class="wrapper">
+  <h2 class="h2-title">再予約する</h2>
+
+  <div class="room-show-container">
+    <div class="room-show-image">
+      <%= image_tag room_image(@reservation.room) %>
+    </div>
+    <div class="room-show-textcontainer">
+      <div class="name-price">
+        <p class="room-show-name"><%= @reservation.room.name %></p>
+        <p class="room-show-price">¥<%= @reservation.room.price %>~</p>
+      </div>
+        <p class="room-show-address"><%= @reservation.room.address %></p>
+        <p class="room-show-explanation"><%= @reservation.room.explanation %></p>
+
+      <%= form_with model: @reservation, url: reservations_confirm_path, method: :post  do |form| %>
+        <div class="reservation-input-container">
+          <div>
+            <label for="reservation-checkin_date">チェックイン</label>
+            <%= form.date_field :checkin_date, id: "reservation-checkin_date" %>
+          </div>
+          <div>
+            <label for="reservation-checkout_date">チェックアウト</label>
+            <%= form.date_field :checkout_date, id: "reservation-checkout_date" %>
+          </div>
+          <div>
+            <label for="reservation-people_num">人数</label>
+            <%= form.number_field :people_num, id: "reservation-people_num" %>
+          </div>
+        </div>
+
+        <%= form.hidden_field :id, value: @reservation.id %>
+        <%= form.hidden_field :room_id, value: @reservation.room_id %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+
+        <%= form.submit value = "再予約する", class: "reservation-button" %>
+      <% end %>
+    </div>
   </div>
 
-  <%= form.hidden_field :id, value: @reservation.id %>
-  <%= form.hidden_field :room_id, value: @reservation.room_id %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-
-  <%= form.submit %>
-<% end %>
+</div>

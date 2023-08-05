@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
-  before_action :set_q, only: [:index]
+  before_action :set_q, only: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @rooms = @q.result(distinct: true)
@@ -20,6 +21,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @rooms = @q.result(distinct: true)
     @room = Room.find(params[:id])
     @reservation = Reservation.new
   end

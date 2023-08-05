@@ -1,13 +1,44 @@
-<h2>登録済み一覧</h2>
+<div class="wrapper">
+  <h2>登録済み一覧</h2>
 
-<% @rooms.each do |room| %>
-  <%= image_tag room_image(room) %>
-  <div>
-    <%= link_to "#{room.name}", room_path(room.id) %><br>
-    <%= room.explanation %><br>
-    <%= room.price %><br>
-    <%= room.created_at.strftime('%Y/%m/%d') %><br>
-    <%= link_to "編集", edit_room_path(room.id) %>
-    <%= link_to "施設を削除", room_path(room.id), method: :delete %>
-  </div><br>
-<% end %>
+  <div class="table-container">
+    <table class="ownroom-table">
+
+      <tr class="tr-thead">
+        <th>画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>料金</th>
+        <th>作成日</th>
+        <th></th>
+      </tr>
+
+      <% @rooms.each do |room| %>
+        <tr class="tr-tbody">
+          <td><%= image_tag room_image(room), class: "roomimage" %></td>
+          <td><%= link_to "#{room.name}", room_path(room.id) %></td>
+          <td class="table-explanation"><div><%= room.explanation %></div></td>
+          <td>¥<%= room.price %></td>
+          <td><%= room.created_at.strftime('%Y/%m/%d') %></td>
+          <td>
+            <div class="dropdown">
+              <span class="dropdown-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://rails-02-sample.herokuapp.com/assets/icons/three-dot-menu-0c042cde96cc73e058e97d09a24944eb2914eb8c152d418dc6fc6964251fdaa2.svg" class="dropdown-menu-image">
+              </span>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><%= link_to "編集", edit_room_path(room.id) %></li>
+                <li><%= link_to "施設を削除", room_path(room.id), method: :delete %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+
+</div>
+
+
+
+

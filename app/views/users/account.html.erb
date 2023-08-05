@@ -1,17 +1,26 @@
-<h1>アカウント表示ページ</h1>
-<p>テストページです</p>
+<div class="wrapper">
+  <h2 class="h2-title">設定</h2>
 
-<%=  link_to "アカウント", users_account_path %>
-<%=  link_to "プロフィール", users_profile_path %>
+  <div class="user-container">
+    <ul class="user-column">
+      <li><%= link_to "アカウント", users_account_path %></li>
+      <li><%= link_to "プロフィール", users_profile_path %></li>
+    </ul>
 
-<%=  link_to "編集", edit_user_registration_path %>
+    <div class="user-account">
+      <div class="account-title-header">
+        <h3>アカウント</h3>
+        <%= link_to "編集", edit_user_registration_path %>
+      </div>
+      <div class="account-content">
+        <span>メールアドレス</span>
+        <%= @user.email %>
+      </div>
+      <div class="account-content">
+        <span>パスワード</span>
+        <span>*********</span>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <%= "メールアドレス" %>
-  <%= @user.email %>
-</div>
-
-<div>
-  <%= "パスワード" %>
-  <%= "*********" %>
 </div>

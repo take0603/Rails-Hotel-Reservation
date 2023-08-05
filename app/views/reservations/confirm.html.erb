@@ -1,19 +1,40 @@
-<div>
-  <%= @reservation.checkin_date.strftime('%Y/%m/%d') %><br>
-  <%= @reservation.checkout_date.strftime('%Y/%m/%d') %><br>
-  <%= @reservation.people_num %><br>
-  <%= @stay_days %><br>
-  <%= @payment %><br>
+<div class="wrapper">
+
+  <div class="form-wrapper">
+    <h2 class="h2-title">予約内容の確認</h2>
+    <div class="confirm-form">
+      <div>
+        <p>チェックイン</p>
+        <%= @reservation.checkin_date.strftime('%Y/%m/%d') %>
+      </div>
+      <div>
+        <p>チェックアウト</p>
+        <%= @reservation.checkout_date.strftime('%Y/%m/%d') %>
+      </div>
+      <div>
+        <p>人数</p>
+        <%= @reservation.people_num %>人
+      </div>
+      <div>
+        <p>日数</p>
+        <%= @stay_days %>日
+      </div>
+      <div>
+        <p>お支払い金額</p>
+        ¥<%= @payment %>
+      </div>
+    </div>
+
+
+    <%= form_with model: @reservation_confirm do |form| %>
+      <%= form.hidden_field :checkin_date, value: @reservation.checkin_date %>
+      <%= form.hidden_field :checkout_date, value: @reservation.checkout_date %>
+      <%= form.hidden_field :people_num, value: @reservation.people_num %>
+      <%= form.hidden_field :payment, value: @payment %>
+      <%= form.hidden_field :room_id, value: @reservation.room_id %>
+      <%= form.hidden_field :user_id, value: @reservation.user_id %>
+      <%= form.submit value="予約を確定", class: "form-submit"%>
+    <% end %>
+    <%= link_to "キャンセル", :back, class: "form-cancel" %>
+  </div>
 </div>
-
-
-<%= form_with model: @reservation_confirm do |form| %>
-  <%= form.hidden_field :checkin_date, value: @reservation.checkin_date %>
-  <%= form.hidden_field :checkout_date, value: @reservation.checkout_date %>
-  <%= form.hidden_field :people_num, value: @reservation.people_num %>
-  <%= form.hidden_field :payment, value: @payment %>
-  <%= form.hidden_field :room_id, value: @reservation.room_id %>
-  <%= form.hidden_field :user_id, value: @reservation.user_id %>
-
-  <%= form.submit value="予約を確定"%>
-<% end %>

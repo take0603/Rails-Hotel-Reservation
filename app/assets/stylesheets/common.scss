@@ -1,0 +1,93 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.form-wrapper{
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+// header--------------------------
+.navbar {
+  height: 80px;
+}
+
+.container-fluid {
+  max-width: 1440px;
+}
+
+.usericon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.link img {
+  width: 200px;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-not-signin {
+  display: flex;
+  margin: 0;
+  align-items: center;
+}
+
+.btn-signin, .btn-signin:hover {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
+
+.btn-signup, .btn-signup:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  background: #ff7757;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 90px;
+}
+
+// footer--------------------------
+footer {
+  background-color:	#212529;
+  height: 300px;
+  position: sticky;
+  top: 100vh;
+  width: 100%;
+  padding: 50px 20px;
+}
+
+footer div {
+  max-width: 1440px;
+  margin: 0 auto;
+  color: white;
+}
