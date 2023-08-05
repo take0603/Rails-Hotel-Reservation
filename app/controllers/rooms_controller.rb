@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
       flash[:notice] = "施設が作成されました。"
       redirect_to room_url(@room.id)
     else
+      flash.now[:alert] = "施設情報が不足しています。"
       render "new"
     end
   end
@@ -36,6 +37,7 @@ class RoomsController < ApplicationController
       flash[:notice] = "施設情報が更新されました。"
       redirect_to room_url(@room.id)
     else
+      flash.now[:alert] = "施設情報が不足しています。"
       render "edit"
     end
   end

@@ -1,6 +1,6 @@
 <div class="wrapper">
-  <h2>予約済み施設一覧</h2>
 
+  <h2>予約済み施設一覧</h2>
   <div class="table-container">
     <table class="ownroom-table">
 
@@ -31,7 +31,7 @@
               </span>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><%= link_to "再予約", edit_reservation_path(reservation) %></li>
-                <li><%= link_to "予約を削除", reservation_path(reservation), method: :delete %></li>
+                <li><%= link_to "予約を削除", reservation_path(reservation), method: :delete, data: {confirm: "予約を削除しますか？"} %></li>
               </ul>
             </div>
           </td>

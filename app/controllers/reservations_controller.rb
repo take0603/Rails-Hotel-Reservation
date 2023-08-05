@@ -43,6 +43,7 @@ class ReservationsController < ApplicationController
 
     if @reservation.invalid?
       @room = Room.find(@reservation.room_id)
+      flash.now[:alert] = "予約情報が不足しています。"
       render "rooms/show" if @reservation.id.nil?
       render :edit unless @reservation.id.nil?
     else

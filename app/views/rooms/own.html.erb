@@ -27,11 +27,13 @@
               </span>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><%= link_to "編集", edit_room_path(room.id) %></li>
-                <li><%= link_to "施設を削除", room_path(room.id), method: :delete %></li>
+                <li><%= link_to "施設を削除", room_path(room.id), method: :delete, data: {confirm: "施設を削除しますか？"} %></li>
               </ul>
             </div>
           </td>
         </tr>
+
+
       <% end %>
 
     </table>
