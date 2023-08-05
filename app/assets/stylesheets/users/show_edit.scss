@@ -45,6 +45,10 @@
   width: 25%;
 }
 
+.upload-usericon-btn {
+  width: 100%;
+}
+
 .btn-usericon-uploader {
   width: 200px;
   color: black;
@@ -73,7 +77,7 @@
 }
 
 .profile-form {
-  width: 75%;
+  width: 100%;
   padding: 10px;
   font-size: 13px;
   border: 1px solid #ced4da;
@@ -88,7 +92,7 @@
   height: 100px;
 }
 
-.account-content :first-child {
+.account-content-label {
   width: 25%;
 }
 

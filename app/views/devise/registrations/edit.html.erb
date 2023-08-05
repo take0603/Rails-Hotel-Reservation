@@ -12,26 +12,37 @@
         <h3>アカウント</h3>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="account-content">
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "profile-form", placeholder: "メールアドレスを入力してください" %>
+          <%= f.label :email, class: "account-content-label" %>
+          <div class="form-inputarea">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "profile-form", placeholder: "メールアドレスを入力してください" %><br>
+            <%= render "shared/error_messages", object: f.object, key: "email" %>
+          </div>
         </div>
 
         <div class="account-content">
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "new-password", class: "profile-form", placeholder: "変更後パスワードを入力" %>
+          <%= f.label :password, class: "account-content-label" %>
+          <div class="form-inputarea">
+            <%= f.password_field :password, autocomplete: "new-password", class: "profile-form", placeholder: "変更後パスワードを入力" %>
+            <%= render "shared/error_messages", object: f.object, key: "password" %>
+          </div>
         </div>
 
         <div class="account-content">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "profile-form", placeholder: "変更後パスワードを入力" %>
+          <%= f.label :password_confirmation, class: "account-content-label" %>
+          <div class="form-inputarea">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "profile-form", placeholder: "変更後パスワードを入力" %>
+            <%= render "shared/error_messages", object: f.object, key: "password_confirmation" %>
+          </div>
         </div>
 
         <div class="account-content">
-          <%= f.label :current_password %>
-          <%= f.password_field :current_password, autocomplete: "current-password", class: "profile-form", placeholder: "現在のパスワードを入力" %>
+          <%= f.label :current_password, class: "account-content-label" %>
+          <div class="form-inputarea">
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "profile-form", placeholder: "現在のパスワードを入力" %>
+            <%= render "shared/error_messages", object: f.object, key: "current_password" %>
+          </div>
         </div>
 
         <div class="profile-submit-group">

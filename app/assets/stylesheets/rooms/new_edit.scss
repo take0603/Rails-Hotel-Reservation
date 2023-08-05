@@ -8,6 +8,10 @@
   margin-bottom: 20px;
 }
 
+.form-inputarea {
+  width: 100%;
+}
+
 .form-content textarea {
   height: 150px;
 }
@@ -21,7 +25,7 @@
   font-size: 15px;
   border: 1px solid #ced4da;
   border-radius: 5px;
-  width: 70%;
+  width: 100%;
 }
 
 .form-content-uploader {
@@ -30,8 +34,8 @@
   margin-bottom: 20px;
 }
 
-.uploader-label {
-  width: 30%;
+.room-label {
+  width: 150px;
 }
 
 .uploader-image-btn {
@@ -48,6 +52,7 @@
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   font-size: 12px;
+  width: 200px;
 }
 
 .form-place-uploader {

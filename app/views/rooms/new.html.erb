@@ -3,23 +3,35 @@
 
   <%= form_with model:@room do |form| %>
     <div class="form-content">
-      <%= form.label :name, "施設名" %>
-      <%= form.text_field :name, class: "form-place", placeholder: "ルーム名を入力" %>
+      <%= form.label :name, "施設名", class: "room-label" %>
+      <div class="form-inputarea">
+        <%= form.text_field :name, class: "form-place", placeholder: "ルーム名を入力" %>
+        <%= render "shared/error_messages", object: form.object, key: "name" %>
+      </div>
     </div>
     <div class="form-content">
-      <%= form.label :explanation, "施設詳細" %>
-      <%= form.text_area :explanation, class: "form-place", placeholder: "施設詳細を入力" %>
+      <%= form.label :explanation, "施設詳細", class: "room-label" %>
+      <div class="form-inputarea">
+        <%= form.text_area :explanation, class: "form-place", placeholder: "施設詳細を入力" %>
+        <%= render "shared/error_messages", object: form.object, key: "explanation" %>
+      </div>
     </div>
     <div class="form-content">
-      <%= form.label :price, "料金" %>
-      <%= form.number_field :price, class: "form-place", placeholder: "1日あたりの料金を入力" %>
+      <%= form.label :price, "料金", class: "room-label" %>
+      <div class="form-inputarea">
+        <%= form.number_field :price, class: "form-place", placeholder: "1日あたりの料金を入力" %>
+        <%= render "shared/error_messages", object: form.object, key: "price" %>
+      </div>
     </div>
     <div class="form-content">
-      <%= form.label :address, "住所" %>
-      <%= form.text_field :address, class: "form-place", placeholder: "住所を入力" %>
+      <%= form.label :address, "住所", class: "room-label" %>
+      <div class="form-inputarea">
+        <%= form.text_field :address, class: "form-place", placeholder: "住所を入力" %>
+        <%= render "shared/error_messages", object: form.object, key: "address" %>
+      </div>
     </div>
     <div class="form-content-uploader">
-      <%= form.label :room_image, class: "uploader-label" do %>
+      <%= form.label :room_image, class: "room-label" do %>
         <span class="btn-uploader-label">施設画像</span>
       <% end %>
       <%= form.label :room_image, class: "uploader-image-btn" do %>

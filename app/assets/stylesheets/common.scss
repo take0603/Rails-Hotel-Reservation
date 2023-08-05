@@ -93,6 +93,12 @@ footer div {
   display: contents;
 }
 
+.error-message {
+  color: #ff4949;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 // フラッシュメッセージ
 .notice {
   display: flex;
