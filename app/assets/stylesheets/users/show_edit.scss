@@ -23,6 +23,10 @@
   border-bottom: 1px solid #ced4da;
 }
 
+.user-column a {
+  color: black;
+}
+
 .user-account {
   width: calc(100% - 285px);
 }
@@ -67,6 +71,12 @@
 }
 
 .account-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.account-content-show {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -127,4 +137,46 @@
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+}
+
+@media screen and (max-width: 960px) {
+  .user-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .user-column {
+    display: flex;
+    width: 100%;
+    text-align: center;
+  }
+
+  .user-account {
+    width: 100%;
+  }
+
+  .account-content {
+    flex-direction: column;
+  }
+
+  .account-content-label {
+    width: 100%;
+  }
+
+  .profile-form-label {
+    width: 100%;
+  }
+
+  .usericon-edit {
+    display: initial;
+  }
+
+  .usericon_lable {
+    width: 100%;
+  }
+
+  .upload-usericon-btn {
+    margin-bottom: 20px;
+  }
 }

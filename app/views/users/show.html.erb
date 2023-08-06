@@ -12,15 +12,15 @@
         <h3>プロフィール</h3>
         <%= link_to "編集", users_profile_edit_path %>
       </div>
-      <div class="account-content">
+      <div class="account-content-show">
         <span class="account-content-label">アイコン画像</span>
         <%= image_tag user_image(@user), class: "account-userimage" %>
       </div>
-      <div class="account-content">
+      <div class="account-content-show">
         <span class="account-content-label">名前</span>
         <%= @user.name %>
       </div>
-      <div class="account-content">
+      <div class="account-content-show">
         <span class="account-content-label">自己紹介</span>
         <%= @user.introduction %>
       </div>

@@ -87,3 +87,17 @@
 .recommend-area-sapporo {
   background-image: url(sapporo.jpg);
 }
+
+@media screen and (max-width: 960px) {
+  .firstview-title {
+    font-size: 30px;
+  }
+
+  .fristview-search {
+    background-color:rgba(255,255,255,0.5);
+    width: 80%;
+    max-width: 400px;
+    padding: 30px;
+    margin: auto;
+  }
+}

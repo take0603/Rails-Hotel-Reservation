@@ -85,3 +85,21 @@
   border: none;
   text-decoration: none;
 }
+
+@media screen and (max-width: 960px) {
+  .room-show-container {
+    flex-direction: column;
+  }
+
+  .room-show-image {
+    width: 100%;
+  }
+
+  .room-show-textcontainer {
+    width: 100%;
+  }
+
+  .reservation-input-container {
+    flex-direction: column;
+  }
+}
