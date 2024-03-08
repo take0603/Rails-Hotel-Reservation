@@ -1,0 +1,103 @@
+// トップ〜検索窓
+.firstview {
+  padding-top: 100px;
+  width: 100%;
+  background-image: url(background_image.jpg);
+  height: 750px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 50px;
+}
+
+.firstview-title {
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  margin-bottom: 70px;
+  width: 100%;
+}
+
+.fristview-search {
+  background-color:rgba(255,255,255,0.5);
+  width: 500px;
+  padding: 30px;
+  margin: auto;
+}
+
+.fristview-search > .room_search input {
+  width: 100%;
+  height: 50px;
+}
+
+.fristview-search > .room_search input:first-of-type {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.fristview-search > .room_search input:last-of-type {
+  border: none;
+  border-radius: 10px;
+  background-color: #ff7757;
+  color: white;
+}
+
+// おすすめのエリア
+.recommend-area-title {
+  border-bottom: 3px solid #ff7757;
+  width: fit-content;
+  margin-bottom: 60px;
+}
+
+.recommend-area {
+  gap: 25px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.recommend-area a {
+  height: 450px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.recommend-area-tokyo {
+  background-image: url(tokyo.jpg);
+}
+
+.recommend-area-osaka {
+  background-image: url(osaka.jpg);
+}
+
+.recommend-area-kyoto {
+  background-image: url(kyoto.jpg);
+}
+
+.recommend-area-sapporo {
+  background-image: url(sapporo.jpg);
+}
+
+@media screen and (max-width: 960px) {
+  .firstview-title {
+    font-size: 30px;
+  }
+
+  .fristview-search {
+    background-color:rgba(255,255,255,0.5);
+    width: 80%;
+    max-width: 400px;
+    padding: 30px;
+    margin: auto;
+  }
+}

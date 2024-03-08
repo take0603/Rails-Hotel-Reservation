@@ -1,0 +1,30 @@
+<%= search_form_for @q, url: rooms_path do |f| %>
+  <div class="rooms-serach">
+    <%= f.search_field :address_cont, placeholder: "エリア名を入力" %>
+    <%= f.search_field :name_or_explanation_cont, placeholder: "キーワード名を入力" %>
+    <%= f.submit '検索' %>
+  </div>
+<% end %>
+
+<div class="wrapper">
+  <div class="rooms-count">
+    <%= "#{@rooms.count}件が見つかりました。" %>
+  </div>
+
+  <div>
+    <ul class="room-list">
+      <% @rooms.each do |room| %> 
+        <li class="room-card">
+          <%= image_tag room_image(room), class: "card-image" %>
+          <div class="card-text">
+            <p class="card-name"><%= room.name %></p>
+            <p class="card-address"><%= room.address %></p>
+            <p class="card-explanation"><%= room.explanation %></p>
+            <p class="card-price">¥<%= room.price %>~</p>
+            <p><%= link_to "詳細はこちら", room_path(room), class: "card-link" %></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

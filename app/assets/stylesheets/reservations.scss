@@ -1,0 +1,16 @@
+// confirm画面
+.h2-title {
+  margin-bottom: 30px;
+}
+
+.confirm-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirm-form div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 18px;
+}

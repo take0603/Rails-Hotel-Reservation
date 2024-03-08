@@ -1,0 +1,25 @@
+<div class="signin-wrapper">
+
+  <div class="signup-wrapper">
+    <div class="signup-container">
+      <h2 class="h2-signup">ログイン</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力" %>
+        </div>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "ログイン", class: "btn-signupform" %>
+        </div>
+        <%= link_to "新しいアカウントを登録", new_user_registration_path, class: "signin_link" %>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+// 施設予約一覧・登録した施設の一覧画面　（共通）
+.table-container {
+  overflow-x: auto;
+}
+
+.ownroom-table {
+  width: 100%;
+  min-width: 800px;
+  font-size: 14px;
+}
+
+.tr-thead th {
+  border-bottom: 1px solid;
+  padding: 10px 15px;
+  white-space: nowrap;
+}
+
+.tr-tbody td {
+  border-bottom: 1px solid #dcdcdc;
+  padding: 15px;
+}
+
+.roomimage {
+  width: 130px;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.table-explanation {
+  min-width: 300px;
+}
+
+.table-explanation div {
+  height: 80px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.dropdown-button {
+  display: flex;
+  width: 20px;
+  justify-content: center;
+  margin: auto;
+}

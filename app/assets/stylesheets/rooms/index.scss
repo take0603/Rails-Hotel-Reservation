@@ -1,0 +1,97 @@
+.rooms-serach {
+  background: #dfe2e6;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.rooms-serach input {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  width: 20%;
+}
+
+.rooms-serach :last-child {
+  width: 10%;
+}
+
+.room_search {
+  gap: 20px;
+}
+
+.rooms-count {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.room-list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.room-card {
+  background: #fff8f1;
+  border-radius: 20px;
+}
+
+.card-image {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.card-text {
+  padding: 20px;
+}
+
+.card-name {
+  color: #767e86;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+
+.card-address {
+  color: #767e86;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 20px;
+}
+
+.card-explanation {
+  font-size: 16px;
+  line-height: 24px;
+  height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.card-price {
+  font-size: 25px;
+  line-height: 32px;
+  margin-bottom: 8px;
+}
+
+.card-link, .card-link:hover {
+  display: flex;
+  width: 80%;
+  text-decoration: none;
+  color: white;
+  background: #ff7757;
+  border-radius: 10px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
